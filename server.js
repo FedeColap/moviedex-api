@@ -38,9 +38,10 @@ function handleGetMovies(req, res) {
           movie.genre.toLowerCase().includes(req.query.genre.toLowerCase())
         )
     } 
+    
     if (req.query.avg_vote) {
         response = response.filter(movie =>
-          // case insensitive searching
+          // Number(movie.avg_vote) >= Number(req.query.avg_vote) <---- SOLUTION WITH NUMBERS
           movie.avg_vote >= req.query.avg_vote
         )
     }
